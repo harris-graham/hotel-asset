@@ -1,0 +1,18 @@
+name: Package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  images:
+    name: Build container images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f nodejs/Dockerfile -t hotel-asset-api:${{ github.sha }} nodejs
+      - name: Build web image
+        run: docker build -f reactjs/Dockerfile -t hotel-asset-web:${{ github.sha }} .
