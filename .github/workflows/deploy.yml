@@ -11,7 +11,7 @@ jobs:
     name: Build container images
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build API image
         run: docker build -f nodejs/Dockerfile -t hotel-asset-api:${{ github.sha }} nodejs
       - name: Build web image
