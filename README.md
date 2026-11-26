@@ -126,7 +126,7 @@ cd hotel-asset
 # Create database and schema
 mysql -u root -p < database/schema.sql
 
-# Load seed data (optional)
+# Load seed data (required for the documented default login)
 mysql -u root -p db_material < database/seed.sql
 ```
 
@@ -142,6 +142,9 @@ cp .env.example .env
 # Edit .env with your database credentials
 # Default admin credentials: admin / admin123
 ```
+
+If `admin / admin123` is rejected, import `database/seed.sql` again to reset the
+seed users' passwords, then restart the backend.
 
 **`.env` Configuration:**
 ```env
