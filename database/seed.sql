@@ -8,11 +8,14 @@ USE `db_material`;
 -- Default Users (Password for all is 'admin123' hashed with bcrypt)
 -- -----------------------------------------------------------------------------
 INSERT INTO `user` (`UserID`, `UserName`, `UserPword`, `UserType`) VALUES
-  (1, 'admin', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin'),
-  (2, 'manager', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin'),
-  (3, 'housekeeping', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'User'),
-  (4, 'maintenance', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'User')
-ON DUPLICATE KEY UPDATE `UserName` = VALUES(`UserName`);
+  (1, 'admin', '$2a$10$1iHAphDXhL1Ol5zT6ng41ONN5itjjaPSp1G/Z2IGU8yd9cA9bgN2K', 'Admin'),
+  (2, 'manager', '$2a$10$1iHAphDXhL1Ol5zT6ng41ONN5itjjaPSp1G/Z2IGU8yd9cA9bgN2K', 'Admin'),
+  (3, 'housekeeping', '$2a$10$1iHAphDXhL1Ol5zT6ng41ONN5itjjaPSp1G/Z2IGU8yd9cA9bgN2K', 'User'),
+  (4, 'maintenance', '$2a$10$1iHAphDXhL1Ol5zT6ng41ONN5itjjaPSp1G/Z2IGU8yd9cA9bgN2K', 'User')
+ON DUPLICATE KEY UPDATE
+  `UserName` = VALUES(`UserName`),
+  `UserPword` = VALUES(`UserPword`),
+  `UserType` = VALUES(`UserType`);
 
 -- -----------------------------------------------------------------------------
 -- Hotel Entities / Buildings

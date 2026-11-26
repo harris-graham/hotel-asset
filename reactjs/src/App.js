@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import 'bootstrap/bootstrap.css';
-import 'bootstrap/bootstrap.bundle.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // import 'bulma/css/bulma.css';
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
